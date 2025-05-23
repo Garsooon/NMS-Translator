@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nms-translator"
+version = "0.1.0"
+description = "No Man's Sky Translation Tool"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Garsooon"},
+]
+dependencies = []
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+urls = {Homepage = "https://github.com/Garsooon/nms-translator"}
+
+[tool.setuptools.package-data]
+translator = ["data/*.txt"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["translator*"]
+exclude = ["translator.tests*"]
+
+[project.scripts]
+nms-translator-cli = "translator.cli:main"
+nms-translator-gui = "translator.gui:main"
+
+[project.optional-dependencies]
+gui = ["tkinter"]  # Normally included in Python stdlib
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "pyinstaller>=6.0",
+]

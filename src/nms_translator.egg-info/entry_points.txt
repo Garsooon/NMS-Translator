@@ -1,0 +1,3 @@
+[console_scripts]
+nms-translator-cli = translator.cli:main
+nms-translator-gui = translator.gui:main
